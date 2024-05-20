@@ -31,7 +31,8 @@ function createBoard(){
 
     // sabemos cantidad de cartas - 10
     // métodos repitan algo cuantas veces queramos y debemos almacenar
-let doubleCards = cartas.concat(cartas)
+
+    let doubleCards = cartas.concat(cartas)
     console.log(doubleCards)
 
     let cardHTML = '';
@@ -39,25 +40,18 @@ let doubleCards = cartas.concat(cartas)
     for (let i = 0; i < doubleCards.length; i++){
         
         cardHTML += `
-        <div id=${i} class="TheGameOfLove">
-             <img src=${doubleCards[i].img} alt=${doubleCards[i].nombre} />
+         <div class="block TheGameOfLove ">
+             <img src=${doubleCards[i].img} alt=${doubleCards[i].nombre} hidden/>
          </div> `
     }
 
     tablero.innerHTML = cardHTML
-
-
-
-
+    
     background.appendChild(tablero)
 
     game()
 
    
-
-
-
-
 
 
 /* 
@@ -115,6 +109,7 @@ function game (){
         //showAlt = image.getAttribute('alt')
         card.addEventListener('click', function () {
             console.log(card.children[0].alt)
+            card.children[0].removeAttribute('hidden')
             //checkCard(card.children[0].alt)
 
         })

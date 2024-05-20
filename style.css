@@ -10,10 +10,11 @@ padding: 0;
     display: grid;
     background-color: transparent;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 1fr, 1fr;
     height: 80vh;
     width: 80vw;
     gap: 10px;
+    position: relative;
 
 }
 
@@ -32,6 +33,11 @@ padding: 0;
     justify-content: center;
     align-items: center;
 /*     transform: rotate(180deg); */
+}
+
+.block {
+    background-image: url('./img/Carta-bloqueada.jpg');
+
 }
 
 /* .hold {

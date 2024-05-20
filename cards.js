@@ -23,7 +23,11 @@ let cartas = [
         nombre: 'Unconditional',
         img: './img/Unconditional.jpg'
     },
-
 ]
 
-
+/* let bloqueadas = [
+    {
+    nombre: 'candados',
+    img: './img/Carta-bloqueada.jpg'
+    }
+] */
