@@ -1,5 +1,4 @@
 
-console.log(cartas)
 
 let body = document.querySelector('body')
 let background
@@ -7,7 +6,7 @@ let parent
 let tablero
 let celdas
 
-console.log(body)
+let parejas = []
 
 
 
@@ -40,9 +39,8 @@ let doubleCards = cartas.concat(cartas)
     for (let i = 0; i < doubleCards.length; i++){
         
         cardHTML += `
-        <div class="TheGameOfLove">
+        <div id=${i} class="TheGameOfLove">
              <img src=${doubleCards[i].img} alt=${doubleCards[i].nombre} />
-             <img src="" alt="" />
          </div> `
     }
 
@@ -53,9 +51,9 @@ let doubleCards = cartas.concat(cartas)
 
     background.appendChild(tablero)
 
+    game()
 
-
-
+   
 
 
 
@@ -108,9 +106,38 @@ let doubleCards = cartas.concat(cartas)
 }
 
 
+function game (){
+    let allcards = document.querySelectorAll('.TheGameOfLove')
+    let showAlt
+    console.log(allcards)
+    allcards.forEach(function(card, i) {
+        console.log(card)         
+        //showAlt = image.getAttribute('alt')
+        card.addEventListener('click', function () {
+            console.log(card.children[0].alt)
+            //checkCard(card.children[0].alt)
+
+        })
+    });
+}
+
+
+function checkCard (item) {
+    // Recibe el item y mira si el array es menor de 2 elementos
+
+    // si es menor lo inserta en el array y da la vuelta la carta
+    // El array .push
+    // sino, debe comprobar si mide ya 2 elementos el array
+        // si son iguales los elementos guay!, los deja mostrándose
+        // sino les da la vuelta, el array parejas debe = []
+
+    // número de parejas (5) si es igual a 0 --> WIN
+    // Function WIN()
+}
 
 window.onload = function () {
     createBoard()
+
 }
 
    /*  < div id = "fondo-1" >

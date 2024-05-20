@@ -10,7 +10,7 @@ padding: 0;
     display: grid;
     background-color: transparent;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
     height: 80vh;
     width: 80vw;
     gap: 10px;
@@ -31,4 +31,13 @@ padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+/*     transform: rotate(180deg); */
 }
+
+/* .hold {
+    background-image: url(img/Carta-bloqueada.jpg);
+} */
+
+/* #fondo-2:hover {
+    background-image: url(img/Carta-bloqueada.jpg);
+} */

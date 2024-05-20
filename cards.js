@@ -21,7 +21,7 @@ let cartas = [
 
     {
         nombre: 'Unconditional',
-        img: 'img/Unconditional.jpg'
+        img: './img/Unconditional.jpg'
     },
 
 ]
