@@ -2,12 +2,18 @@ body{
 box-sizing: border-box;
 margin: 0;
 padding: 0;
+
 }
 
 
-#fondo {
+#fondo-1{
     background-image: url('./Imágenes/Fondo-1.jpg');
     width: 100vw;
     height: 100vh;
 }
 
+#fondo-2 {
+    background-image: url("./Imágenes/Fondo-2.jpg");
+    width: 100vw;
+    height: 100vh;
+}
