@@ -6,14 +6,29 @@ padding: 0;
 }
 
 
+.tablero {
+    display: grid;
+    background-color: transparent;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
+    height: 80vh;
+    width: 80vw;
+    gap: 10px;
+
+}
+
+
 #fondo-1{
-    background-image: url('./Imágenes/Fondo-1.jpg');
+    background-image: url('./img/Fondo-1.jpg');
     width: 100vw;
     height: 100vh;
 }
 
 #fondo-2 {
-    background-image: url("./Imágenes/Fondo-2.jpg");
+    background-image: url("./img/Fondo-2.jpg");
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

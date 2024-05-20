@@ -1,27 +1,29 @@
-const cartas = [
+let cartas = [
     {
         nombre: 'Cupid',
-        img: './Imágenes/Cupid.jpg'
+        img: './img/Cupid.jpg'
     },
 
     {
         nombre: 'Birdies',
-        img: './Imágenes/Birdies.jpg'
+        img: './img/Birdies.jpg'
     },
 
     {
         nombre: 'Lovers',
-        img: './Imágenes/Lovers.jpg'
+        img: './img/Lovers.jpg'
     },
 
     {
         nombre: 'In-love',
-        img: './Imágenes/In-love.jpg'
+        img: './img/In-love.jpg'
     },
 
     {
         nombre: 'Unconditional',
-        img: './Imágenes/Unconditional.jpg'
+        img: 'img/Unconditional.jpg'
     },
 
 ]
+
+
