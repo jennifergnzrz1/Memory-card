@@ -37,19 +37,10 @@ body {
     background-repeat: no-repeat;
     height: 45vh;
     width: 15vw;
-  
 }
 
 /* .TheGameOfLove:hover {
     transform: rotateX(180);
 } */
 
-@keyframes TheGameOfLove {
-    from {
-        transform: rotateY(180deg);
-    }
 
-    to {
-        transform: rotateY(0deg);
-    }
-}

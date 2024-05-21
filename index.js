@@ -1,4 +1,30 @@
 
+let cartas = [
+    {
+        nombre: 'Cupid',
+        img: './img/Cupid.jpg'
+    },
+
+    {
+        nombre: 'Birdies',
+        img: './img/Birdies.jpg'
+    },
+
+    {
+        nombre: 'Lovers',
+        img: './img/Lovers.jpg'
+    },
+
+    {
+        nombre: 'In-love',
+        img: './img/In-love.jpg'
+    },
+
+    {
+        nombre: 'Unconditional',
+        img: './img/Unconditional.jpg'
+    },
+]
 
 let body = document.querySelector('body')
 let background
@@ -32,13 +58,15 @@ function createBoard() {
     let doubleCards = cartas.concat(cartas)
     console.log(doubleCards)
 
+    
+
     let cardHTML = '';
 
     for (let i = 0; i < doubleCards.length; i++) {
 
         cardHTML += `
          <div class="block TheGameOfLove ">
-             <img src=${doubleCards[i].img} alt=${doubleCards[i].nombre} hidden/>
+             <img src=${doubleCards[i].img} alt=${doubleCards[i].nombre}_${i} hidden/>
          </div> `
     }
 
@@ -48,53 +76,12 @@ function createBoard() {
 
     game()
 
-
-
-    /* 
-        <div class="contenedor">
-            <div class="tablero" id="fondo-2">
-                <div class="TheGamerandomOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-                <div class="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-                <div class="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-                <div class="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-                <div class="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-                <div class="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-                <div class="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>replaceChildss="TheGameOfLove">
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-            </div>
-        </div> */
 }
 
 
 function game() {
     let allcards = document.querySelectorAll('.TheGameOfLove')
     let showAlt
-    console.log(allcards)
     allcards.forEach(function (card, i) {
         console.log(card)
         //showAlt = image.getAttribute('alt')
@@ -102,9 +89,8 @@ function game() {
             console.log(card.children[0].alt)
             card.children[0].removeAttribute('hidden')
             card.classList.remove('block')
-            console.log(card)
 
-            /* checkCard(card.children[0].alt) */
+            checkCard(card.children[0].alt) 
 
         })
     });
@@ -115,14 +101,33 @@ function checkCard(item) {
 
     // Recibe el item y mira si el array es menor de 2 elementos
 
-    for (let i = 0; i < item.length; i++) {
-        if (parejas < item) {
-            return parejas.push
-        } else if (parejas === item) {
-            return
-            console.log(parejas)
-        }
+    if (parejas.length < 2){
+        parejas.push(item)
+        console.log(parejas)
     }
+
+    if (parejas.length === 2 && parejas[0].split('_')[0] !== parejas[1].split('_')[0]){
+        let card1 = tablero.querySelector(`img[alt=${parejas[0]}`)
+
+        let card2 = tablero.querySelector(`img[alt=${parejas[1]}`)
+
+        console.log(card2)
+        setTimeout(function(){
+            card1.setAttribute('hidden', 'true')
+            card2.setAttribute('hidden', 'true')
+
+        },1000)
+
+        parejas = []
+
+    } 
+
+    if (parejas.length === 2 && parejas[0].split('_')[0] === parejas[1].split('_')[0]) {
+        parejas = []
+    }
+
+
+
 
 
     // si es menor lo inserta en el array y da la vuelta la carta
@@ -134,6 +139,7 @@ function checkCard(item) {
     // número de parejas (5) si es igual a 0 --> WIN
     // Function WIN()
 }
+
 
 window.onload = function () {
     createBoard()

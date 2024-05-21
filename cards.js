@@ -25,6 +25,8 @@ let cartas = [
     },
 ]
 
+
+
 /* let bloqueadas = [
     {
     nombre: 'candados',
