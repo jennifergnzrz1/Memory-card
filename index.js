@@ -104,7 +104,7 @@ function game() {
             card.classList.remove('block')
             console.log(card)
 
-            //checkCard(card.children[0].alt)
+            /* checkCard(card.children[0].alt) */
 
         })
     });
