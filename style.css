@@ -1,7 +1,7 @@
-body{
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -18,8 +18,7 @@ padding: 0;
 
 }
 
-
-#fondo-1{
+#fondo-1 {
     background-image: url('./img/Fondo-1.jpg');
     width: 100vw;
     height: 100vh;
@@ -32,18 +31,14 @@ padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-/*     transform: rotate(180deg); */
+    /*     transform: rotate(180deg); */
 }
 
 .block {
     background-image: url('./img/Carta-bloqueada.jpg');
-
+    background-repeat: no-repeat;
 }
 
-/* .hold {
-    background-image: url(img/Carta-bloqueada.jpg);
-} */
-
-/* #fondo-2:hover {
-    background-image: url(img/Carta-bloqueada.jpg);
-} */
+.block:hover {
+    transform: rotateX(180);
+}
