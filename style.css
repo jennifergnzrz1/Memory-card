@@ -24,6 +24,7 @@ body {
 
 #fondo-2 {
     background-image: url("./img/Fondo-2.jpg");
+    background-size: cover;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -31,6 +32,7 @@ body {
     align-items: center;
     background-repeat: no-repeat;
     /*     transform: rotate(180deg); */
+    right: 100%;
 }
 
 .TheGameOfLove {
@@ -43,5 +45,7 @@ body {
 /* .TheGameOfLove:hover {
     transform: rotateX(180);
 } */
-
+.buttonStart {
+    
+}
 
