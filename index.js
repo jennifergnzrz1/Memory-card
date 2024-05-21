@@ -34,6 +34,12 @@ let celdas
 let parejas = []
 
 
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
+  }
+}
 
 function createBackground(item) {
     background = document.createElement('div')
@@ -57,11 +63,14 @@ function createBoard() {
 
     let doubleCards = cartas.concat(cartas)
     console.log(doubleCards)
+    shuffle(doubleCards)
+   // console.log(shuffle(doubleCards))
 
     
 
     let cardHTML = '';
 
+    
     for (let i = 0; i < doubleCards.length; i++) {
 
         cardHTML += `
@@ -73,9 +82,9 @@ function createBoard() {
     tablero.innerHTML = cardHTML
 
     background.appendChild(tablero)
-
+    
     game()
-
+    
 }
 
 
@@ -131,7 +140,7 @@ function checkCard(item) {
 
 
     // si es menor lo inserta en el array y da la vuelta la carta
-    // El array .push
+    // El arrshuffleay .push
     // sino, debe comprobar si mide ya 2 elementos el array
     // si son iguales los elementos guay!, los deja mostrándose
     // sino les da la vuelta, el array parejas debe ser = []
@@ -139,6 +148,9 @@ function checkCard(item) {
     // número de parejas (5) si es igual a 0 --> WIN
     // Function WIN()
 }
+
+
+
 
 
 window.onload = function () {
