@@ -33,8 +33,7 @@ let parent
 let tablero
 let celdas
 let parejas = []
-let counter = 0/* let win = document.querySelector('#win')
-let restart = document.querySelector('#restart') */
+let counter = 0
 
 
 //Función de pantalla inicio
@@ -74,9 +73,9 @@ function screenReset() {
     </div>
      <div id='ventana'>
             <div class='subtitle'>
-                <h2>AHORA TE TOCA A TI \n ENCONTRAR TU CARTA</h2>
+                <h2>WINNER</h2>
             </div>
-            <h1 id='otraCarta'>"OTRA CARTA"</h1>
+            <h1 id='otraCarta'></h1>
             <div class='divBtnReset'><h2>VOLVER A JUGAR</h2></div
     </div> `
   body.appendChild(resetScreen)
@@ -169,16 +168,15 @@ function createBackground(item) {
 
       }, 250)
 
+
       parejas = []
 
     }
     if (parejas.length === 2 && parejas[0].split('_')[0] === parejas[1].split('_')[0]) {
       parejas = []
-      
       counter++
       //console.log(counter)
-      if (counter === 1){
-        
+      if (counter === 5){
         screenReset()
         counter = 0
       }
