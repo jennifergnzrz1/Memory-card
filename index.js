@@ -38,6 +38,53 @@ button.type = 'button';
 button.innerText = 'Haz Click';
 document.body.appendChild(button) */
 
+
+function createStartScreen() {
+    let startScreen = document.createElement('div');
+    startScreen.classList.add('start-screen');
+
+    startScreen.innerHTML = 
+    `
+    <h1 class="title">THE GAME</h1>
+    <h1 class=" title2">OF LOVE</h1>
+    <span class= "subtitle">ENCUENTRA LAS</span>
+    <span class= "subtitle subtitle2">CARTAS IGUALES</span>
+    <div class='divBtn'><span>EMPEZAR A JUGAR</span></div
+
+    
+    `
+
+    /* let title = document.createElement('h1');
+    title.classList.add('title');
+    title.innerText = 'THE GAME OF LOVE';
+
+    let subtitle = document.createElement('p');
+    subtitle.classList.add('subtitle');
+    subtitle.innerText = 'Encuentra las cartas iguales'; */
+
+   /*  let image = document.createElement('img');
+    image.src = './img/Fondo-1.jpg'; // Ruta de la imagen de inicio
+    image.alt = 'Start Image'; */
+
+    body.appendChild(startScreen);
+
+    let startButton = document.querySelector('.divBtn');
+/*     startButton.innerText = 'EMPEZAR A JUGAR';
+ */    startButton.addEventListener('click', function () {
+        startScreen.style.display = 'none'; // Ocultar la pantalla de inicio al hacer clic en el botón
+        createBoard(); // Llamar a la función para crear el tablero de juego
+    });
+
+  /*   startScreen.appendChild(image);
+    startScreen.appendChild(startButton);
+    startScreen.appendChild(title);
+    startScreen.appendChild(subtitle); */
+
+    
+
+}
+
+
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -163,7 +210,8 @@ window.onclick = function (event) {
 
 
 window.onload = function () {
-    createBoard()
+    createStartScreen()
+    
 
 }
 
