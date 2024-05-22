@@ -152,18 +152,17 @@ function createBackground(item) {
 
   function checkCard(item) {
 
-    if
-
-    if (parejas.length < 2) {
+  
+    if (parejas.length < 2 && !parejas.includes (item)) { 
       parejas.push(item)
-      console.log(parejas)
+      //console.log(parejas)
     }
     if (parejas.length === 2 && parejas[0].split('_')[0] !== parejas[1].split('_')[0]) {
       let card1 = tablero.querySelector(`img[alt=${parejas[0]}`)
 
       let card2 = tablero.querySelector(`img[alt=${parejas[1]}`)
 
-      console.log(card2)
+      //console.log(card2)
       setTimeout(function () {
         card1.setAttribute('hidden', '')
         card2.setAttribute('hidden', '')
@@ -177,13 +176,14 @@ function createBackground(item) {
       parejas = []
       
       counter++
-      console.log(counter)
-      if (counter === 5){
+      //console.log(counter)
+      if (counter === 1){
         
         screenReset()
         counter = 0
       }
     }
+    console.log(parejas)
   }
 
 

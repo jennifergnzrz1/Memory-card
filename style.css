@@ -150,6 +150,7 @@ body {
     z-index: 20;
     top: 0;
     left: 0;
+
 }
 
 .windowReset {
@@ -162,7 +163,7 @@ body {
     height: 100%;
     background-color: #ff89a1;
     position: absolute;
-    opacity: 0.7;
+    opacity: 0.5;
     mix-blend-mode: screen;
     
 }
