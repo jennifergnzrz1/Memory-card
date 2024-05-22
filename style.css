@@ -15,12 +15,6 @@ body {
 }
 
 
-/* #fondo-1 {
-    background-image: url('./img/Fondo-1.jpg');
-    width: 100vw;
-    height: 100vh;
-} */
-
 #fondo-1 {
     background-image: url('./img/Fondo-1.jpg');
     background-repeat: no-repeat;
@@ -29,6 +23,7 @@ body {
     height: 100vh;
     position: absolute;
 }
+
 
 #fondo-2 {
     background-image: url("./img/Fondo-2.jpg");
@@ -44,12 +39,14 @@ body {
     /* right: 100%; */
 }
 
+
 .TheGameOfLove {
     background-image: url('./img/Carta-bloqueada.jpg');
     background-repeat: no-repeat;
     width: 17vw;
     height: 47vh;
 }
+
 
 .start-screen {
     position: absolute;
@@ -60,21 +57,23 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-repeat:justify-content center no-repeat;
+    background-repeat: justify-content center no-repeat;
     background-size: cover;
     background-position: center center;
-
 }
 
+
 .start-screen img {
-/*     position: absolute;
- */    width: 100%;
+    /*     position: absolute;
+ */
+    width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    
 }
-.divBtn{
+
+
+.divBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,9 +82,9 @@ body {
     border: 2px solid black;
     cursor: pointer;
     border-radius: 50px;
-
-
 }
+
+
 .divBtn span {
     font-size: calc(0.5rem + 1vw);
     cursor: pointer;
@@ -94,14 +93,98 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .divBtn:hover {
     background-color: #60aaff;
 }
 
+
 .divBtn:active {
-background-color: #ffd1c8;
-color: black;
+    background-color: #ffd1c8;
+    color: black;
+    }
+
+    
+.reset-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
 }
+
+
+.windowReset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+    background-color: #ff89a1;
+    position: relative;
+}
+
+
+#ventana{
+    background-image: url('./img/ventana.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 45%;
+    height: 60%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    border-top-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    text-align: center;
+    mix-blend-mode:normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.divBtnReset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #99cbfc;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 50px;
+    position: relative;
+}
+
+
+.divBtnReset span {
+    font-size: calc(0.5rem + 1vw);
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.divBtnReset:hover {
+    background-color: #60aaff;
+}
+
+
+.divBtnReset:active {
+    background-color: #ffd1c8;
+    color: black;
+}
+
 
 .title {
     margin: 0;
@@ -111,40 +194,33 @@ color: black;
     color: white;
     -webkit-text-stroke: 1.5px #0a0a0a;
     font-family: Arial, Helvetica, sans-serif;
-/*     position: absolute;
- */}
+    /*     position: absolute;
+ */
+}
 
- .title2 {
+
+.title2 {
     margin: 0;
-        font-size: calc(5rem + 2vw);
-        font-weight: 900;
-        color: white;
-        -webkit-text-stroke: 1.5px #0a0a0a;
-        font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(5rem + 2vw);
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke: 1.5px #0a0a0a;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 30px;
- }
+}
+
 
 .subtitle {
     font-size: calc(0.9rem + 1vw);
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
-   
 }
-.subtitle2{
+
+
+.subtitle2 {
     margin-bottom: 100px;
 }
-
-/* .TheGameOfLove:hover {
-    transform: rotateX(180);
-} */
-
-/* .buttonStart {
-
-    border: solid;
-    align-items: center;
-    border-radius: 100%;
-} */
 
 
 @media (max-width: 2426px) {
@@ -154,6 +230,6 @@ color: black;
 
     .title {
         margin-top: 220px;
-        
+
     }
 }

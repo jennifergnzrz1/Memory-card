@@ -32,11 +32,112 @@ let parent
 let tablero
 let celdas
 let parejas = []
+/* let reset =
+    `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
+<defs>
+  <style>
+    .cls-1 {
+      fill: #232310;
+    }
 
-/* const button = document.createElement('button');
-button.type = 'button';
-button.innerText = 'Haz Click';
-document.body.appendChild(button) */
+    .cls-1, .cls-2, .cls-3 {
+      stroke-width: 0px;
+    }
+
+    .cls-2 {
+      fill: #ff89a1;
+      mix-blend-mode: screen;
+    }
+
+    .cls-3 {
+      fill: #ffffe8;
+    }
+
+    .cls-4 {
+      isolation: isolate;
+    }
+
+    .cls-5 {
+      fill: #9cf;
+      stroke: #232310;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</defs>
+<g class="cls-4">
+  <g id="Capa_1" data-name="Capa 1">
+    <g>
+      <polyline class="cls-2" points="1920 0 1920 1080 0 1080 0 0"/>
+      <g>
+        <g>
+          <path class="cls-3" d="M590.1,249.1h739.9c3.7,0,6.7,3,6.7,6.7v568.3c0,3.7-3,6.7-6.7,6.7h-739.9c-3.7,0-6.7-3-6.7-6.7V255.8c0-3.7,3-6.7,6.7-6.7Z"/>
+          <path class="cls-1" d="M1329.9,249.6c3.4,0,6.2,2.8,6.2,6.2v568.3c0,3.4-2.8,6.2-6.2,6.2h-739.9c-3.4,0-6.2-2.8-6.2-6.2V255.8c0-3.4,2.8-6.2,6.2-6.2h739.9M1329.9,248.6h-739.9c-4,0-7.2,3.2-7.2,7.2v568.3c0,4,3.2,7.2,7.2,7.2h739.9c4,0,7.2-3.2,7.2-7.2V255.8c0-4-3.2-7.2-7.2-7.2h0Z"/>
+        </g>
+        <path class="cls-5" d="M1336.2,348.3v-45.2c0-29.4-24.1-53.5-53.5-53.5h-645.3c-29.4,0-53.5,24.1-53.5,53.5v45.2h752.3Z"/>
+      </g>
+    </g>
+  </g>
+</g>
+</svg>` */
+
+
+function screenReset(){
+    let resetScreen = document.createElement('div');
+    resetScreen.classList.add('reset-screen');
+
+    resetScreen.innerHTML =  `
+    <div class='windowReset'>
+       
+    </div>
+     <div id='ventana'>
+            <div class='subtitle'>
+                <h2>AHORA TE TOCA A TI \n ENCONTRAR TU CARTA</h2>
+            </div>
+            <h1 id='otraCarta'>"OTRA CARTA"</h1>
+            <div class='divBtnReset'><h2>VOLVER A JUGAR</h2></div
+    </div>
+    `
+    
+    
+    
+ /*     `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff89a1;
+        mix-blend-mode: screen;
+        opacity: .7;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <g class="cls-2">
+    <g id="Capa_1" data-name="Capa 1">
+      <polyline class="cls-1" points="1920 0 1920 1080 0 1080 0 0"/>
+    </g>
+  </g>
+</svg>` */
+
+
+
+body.appendChild(resetScreen)
+
+//resetScreen.style.display = 'none'
+
+    let resetButton = document.querySelector('.divBtnReset');
+/*     resetButton.innerText = 'EMPEZAR A JUGAR';
+ */    resetButton.addEventListener('click', function () {
+        resetScreen.style.display = 'none'; // Ocultar la pantalla de inicio al hacer clic en el botón
+        createBoard(); // Llamar a la función para crear el tablero de juego
+    });
+
+}
 
 
 function createStartScreen() {
@@ -48,10 +149,8 @@ function createStartScreen() {
     <h1 class="title">THE GAME</h1>
     <h1 class=" title2">OF LOVE</h1>
     <span class= "subtitle">ENCUENTRA LAS</span>
-    <span class= "subtitle subtitle2">CARTAS IGUALES</span>
+    <span class= "subtitle subtitle2">PAREJAS IGUALES</span>
     <div class='divBtn'><span>EMPEZAR A JUGAR</span></div
-
-    
     `
 
     /* let title = document.createElement('h1');
@@ -176,7 +275,7 @@ function checkCard(item) {
             card1.setAttribute('hidden', '')
             card2.setAttribute('hidden', '')
 
-        },1000)
+        }, 250)
 
         parejas = []
 
@@ -211,9 +310,20 @@ window.onclick = function (event) {
 
 window.onload = function () {
     createStartScreen()
+    createBoard()
+    screenReset()
+}
+
+
     
 
-}
+
+
+
+
+
+
+
 
 /*  < div id = "fondo-1" >
      <div class="inicio">
@@ -225,5 +335,4 @@ window.onload = function () {
          <img src="" alt="">
          <button type="reset">Volver a jugar</button>
      </div>
- </ > 
-*/
+ </ >  */
