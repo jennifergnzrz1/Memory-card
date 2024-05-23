@@ -115,7 +115,7 @@ body {
         color: white;
         -webkit-text-stroke: 1.5px #0a0a0a;
         font-family: Arial, Helvetica, sans-serif;
-        margin-bottom: 30px;
+        margin-bottom: 5px;
     }    
     
     .subtitle {
@@ -171,9 +171,8 @@ body {
 #ventana{
     background-image: url('./img/Ventana.png');
     background-size: cover;
-    background-position: center;
     width: 45%;
-    height: 60%;
+    height: 65%;
     padding: 0;
     margin: 0;
     position: absolute;
@@ -195,7 +194,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 30px;
+    height: 20px;
     background-color: #99cbfc;
     border: 2px solid black;
     cursor: pointer;
@@ -221,3 +221,26 @@ body {
 }
 
 
+.shake {
+    padding: 20px 40px;
+    background-color: #ff6347;
+    color: white;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+}
+
+.shake:hover {
+    animation: shake 0.5s; /* Duración de la animación */
+    animation-iteration-count: infinite; /* Repetir la animación infinitamente */
+}
+
+.tinder {
+    color: #ff89a1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px;
+}

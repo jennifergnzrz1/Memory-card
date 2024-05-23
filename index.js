@@ -24,10 +24,8 @@ let cartas = [
     img: './img/Unconditional.jpg'
   },
 ]
-
 let body = document.querySelector('body')
 let resetScreen = document.createElement('div');
-
 let background
 let parent
 let tablero
@@ -73,9 +71,11 @@ function screenReset() {
     </div>
      <div id='ventana'>
             <div class='subtitle'>
-                <h2>WINNER</h2>
+                <h2>AHORA TE TOCA A TI ENCONTRAR TU</h2>
             </div>
-            <h1 id='otraCarta'></h1>
+            <h1 id='otraCarta'>"OTRA CARTA"</h1>
+            <a href="https://tinder.com/es-ES" target="_blank" class="tinder">PULSA AQUÍ</a>
+    
             <div class='divBtnReset'><h2>VOLVER A JUGAR</h2></div
     </div> `
   body.appendChild(resetScreen)
@@ -108,13 +108,11 @@ function createBackground(item) {
 
   function createBoard() {
     createBackground('fondo-2')
-    console.log(background)
 
     tablero = document.createElement('div')
     tablero.classList.add('tablero')
 
     let doubleCards = cartas.concat(cartas)
-    console.log(doubleCards)
     shuffle(doubleCards)
 
     let cardHTML = '';
@@ -123,7 +121,7 @@ function createBackground(item) {
     for (let i = 0; i < doubleCards.length; i++) {
 
       cardHTML += `
-         <div class=" TheGameOfLove ">
+         <div class=" TheGameOfLove "> 
              <img  src=${doubleCards[i].img} alt=${doubleCards[i].nombre}_${i} hidden/>
          </div> `
     }
@@ -154,34 +152,34 @@ function createBackground(item) {
   
     if (parejas.length < 2 && !parejas.includes (item)) { 
       parejas.push(item)
-      //console.log(parejas)
     }
     if (parejas.length === 2 && parejas[0].split('_')[0] !== parejas[1].split('_')[0]) {
       let card1 = tablero.querySelector(`img[alt=${parejas[0]}`)
 
       let card2 = tablero.querySelector(`img[alt=${parejas[1]}`)
+     
 
-      //console.log(card2)
+
       setTimeout(function () {
+        parejas = []
         card1.setAttribute('hidden', '')
         card2.setAttribute('hidden', '')
-
       }, 250)
 
 
-      parejas = []
 
     }
-    if (parejas.length === 2 && parejas[0].split('_')[0] === parejas[1].split('_')[0]) {
+
+    //cupido_01  cupido_05
+    if (parejas.length === 2 && parejas[0].split('_')[0] === parejas[1].split('_')[0] && parejas[0] !== parejas[1] ) {
+      console.log(parejas)
       parejas = []
       counter++
-      //console.log(counter)
       if (counter === 5){
         screenReset()
         counter = 0
       }
     }
-    console.log(parejas)
   }
 
 
@@ -191,14 +189,14 @@ function createBackground(item) {
   function game() {
     let allcards = document.querySelectorAll('.TheGameOfLove')
     allcards.forEach(function (card, i) {
-      console.log(card)
       card.addEventListener('click', function () {
-        console.log(card.children[0].alt)
+        if(parejas.length < 2) {
         card.children[0].removeAttribute('hidden')
         card.classList.remove('block')
         checkCard(card.children[0].alt)
+        }
+
       })
-      console.log(body)
     });
   }
 
@@ -210,40 +208,7 @@ function createBackground(item) {
 
   }
 
-  //Restart ***
-  /* 
-  function checkWinner() {
-    if (hits === numberOfShips) {
-      resetButton.style.display = 'flex
-      container.removeChild(tablero)
-      container.removeChild(counterElement)
-      fillTablero()
-    }
-  }
-  
-  restart.addEventListener('click', function () {
-    resetButton.style.display = 'none'
-  }) */
-
-  //Cuando se carga la ventana, muestra la pantalla de inicio y la ventana de reinicio
-
-
-
-//Restart ***
-/* 
-function checkWinner() {
-  if (hits === numberOfShips) {
-    resetButton.style.display = 'flex'
-    container.removeChild(tablero)
-    container.removeChild(counterElement)
-    fillTablero()
-  }
-}
-
-restart.addEventListener('click', function () {
-  resetButton.style.display = 'none'
-}) */
-
+ 
 //Cuando se carga la ventana, muestra la pantalla de inicio y la ventana de reinicio
 
 window.onload = function () {
