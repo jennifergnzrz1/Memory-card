@@ -32,6 +32,8 @@ let tablero
 let celdas
 let parejas = []
 let counter = 0
+let clickSound = new Audio('sound/sonidoboton_mp3cut.net(1).mp3');
+
 
 
 //Función de pantalla inicio
@@ -41,7 +43,7 @@ function createStartScreen() {
   startScreen.classList.add('start-screen');
 
   startScreen.innerHTML =
-  ` <h1 class="title">THE GAME</h1>
+    ` <h1 class="title">THE GAME</h1>
   <h1 class=" title2">OF LOVE</h1>
   <span class= "subtitle">ENCUENTRA LAS</span>
   <span class= "subtitle subtitle2">PAREJAS IGUALES</span>
@@ -66,8 +68,8 @@ function screenReset() {
   resetScreen.classList.add('reset-screen');
   resetScreen.style.display = 'flex'
 
-  resetScreen.innerHTML = 
-  ` <div class='windowReset'>  
+  resetScreen.innerHTML =
+    ` <div class='windowReset'>  
     </div>
      <div id='ventana'>
             <div class='subtitle'>
@@ -81,11 +83,11 @@ function screenReset() {
   body.appendChild(resetScreen)
 
 
-  
+
   //resetScreen.style.display = 'none'
 
   let resetButton = document.querySelector('.divBtnReset');
-   resetButton.addEventListener('click', function () {
+  resetButton.addEventListener('click', function () {
     reverseCard()
 
   });
@@ -104,114 +106,128 @@ function createBackground(item) {
 
 
 
-  //Función para crear el tablero del juego
+//Función para crear el tablero del juego
 
-  function createBoard() {
-    createBackground('fondo-2')
+function createBoard() {
+  createBackground('fondo-2')
 
-    tablero = document.createElement('div')
-    tablero.classList.add('tablero')
+  tablero = document.createElement('div')
+  tablero.classList.add('tablero')
 
-    let doubleCards = cartas.concat(cartas)
-    shuffle(doubleCards)
+  let doubleCards = cartas.concat(cartas)
+  shuffle(doubleCards)
 
-    let cardHTML = '';
+  let cardHTML = '';
 
 
-    for (let i = 0; i < doubleCards.length; i++) {
+  for (let i = 0; i < doubleCards.length; i++) {
 
-      cardHTML += `
+    cardHTML += `
          <div class=" TheGameOfLove "> 
              <img  src=${doubleCards[i].img} alt=${doubleCards[i].nombre}_${i} hidden/>
          </div> `
-    }
-
-    tablero.innerHTML = cardHTML
-
-    background.appendChild(tablero)
-
-    game()
-
   }
 
+  tablero.innerHTML = cardHTML
 
-  //Función para mezclar las cartas
+  background.appendChild(tablero)
 
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
-    }
+  game()
+
+}
+
+
+//Función para mezclar las cartas
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
   }
+}
 
 
-  //Función para comprobar si las cartas coinciden
+//Función para comprobar si las cartas coinciden
 
-  function checkCard(item) {
-
-  
-    if (parejas.length < 2 && !parejas.includes (item)) { 
-      parejas.push(item)
-    }
-    if (parejas.length === 2 && parejas[0].split('_')[0] !== parejas[1].split('_')[0]) {
-      let card1 = tablero.querySelector(`img[alt=${parejas[0]}`)
-
-      let card2 = tablero.querySelector(`img[alt=${parejas[1]}`)
-     
+function checkCard(item) {
 
 
-      setTimeout(function () {
-        parejas = []
-        card1.setAttribute('hidden', '')
-        card2.setAttribute('hidden', '')
-      }, 250)
+  if (parejas.length < 2 && !parejas.includes(item)) {
+    parejas.push(item)
+  }
+  if (parejas.length === 2 && parejas[0].split('_')[0] !== parejas[1].split('_')[0]) {
+    let card1 = tablero.querySelector(`img[alt=${parejas[0]}`)
+
+    let card2 = tablero.querySelector(`img[alt=${parejas[1]}`)
 
 
 
-    }
-
-    //cupido_01  cupido_05
-    if (parejas.length === 2 && parejas[0].split('_')[0] === parejas[1].split('_')[0] && parejas[0] !== parejas[1] ) {
-      console.log(parejas)
+    setTimeout(function () {
       parejas = []
-      counter++
-      if (counter === 5){
-        screenReset()
-        counter = 0
-      }
-    }
+      card1.setAttribute('hidden', '')
+      card2.setAttribute('hidden', '')
+    }, 250)
+
+
+
   }
 
+  //cupido_01  cupido_05
+  if (parejas.length === 2 && parejas[0].split('_')[0] === parejas[1].split('_')[0] && parejas[0] !== parejas[1]) {
+    console.log(parejas)
+    parejas = []
+    counter++
+    if (counter === 5) {
+      screenReset()
+      counter = 0
+    }
+  }
+}
 
 
-  //Función para crear la logica del juego
 
-  function game() {
-    let allcards = document.querySelectorAll('.TheGameOfLove')
-    allcards.forEach(function (card, i) {
-      card.addEventListener('click', function () {
-        if(parejas.length < 2) {
+//Función para crear la logica del juego
+
+function game() {
+  let allcards = document.querySelectorAll('.TheGameOfLove')
+  allcards.forEach(function (card, i) {
+    card.addEventListener('click', function () {
+      clickSound.play();
+      if (parejas.length < 2) {
+
         card.children[0].removeAttribute('hidden')
         card.classList.remove('block')
         checkCard(card.children[0].alt)
-        }
 
-      })
-    });
-  }
+      }
+    })
+  });
+}
 
-  function reverseCard() {
-    body.removeChild(background)
-    resetScreen.style.display = 'none'
+function reverseCard() {
+  body.removeChild(background)
+  resetScreen.style.display = 'none'
 
-    createBoard(); // Llamar a la función para crear el tablero de juego
+  createBoard(); // Llamar a la función para crear el tablero de juego
 
-  }
+}
 
- 
+
+
+
+
+
+
+
+
 //Cuando se carga la ventana, muestra la pantalla de inicio y la ventana de reinicio
 
 window.onload = function () {
   createStartScreen()
- 
+
 }
+
+
+
+
+
